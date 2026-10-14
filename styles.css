@@ -55,6 +55,49 @@ h1 {
   gap: 12px;
 }
 
+.auth-panel {
+  margin-bottom: 20px;
+  padding: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.auth-panel form {
+  display: grid;
+  gap: 10px;
+}
+
+.auth-panel label {
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.auth-panel input {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: inherit;
+  font: inherit;
+}
+
+.auth-panel input:focus {
+  border-color: #2563eb;
+  outline: 2px solid rgb(37 99 235 / 20%);
+}
+
+.auth-panel p {
+  margin: 0 0 12px;
+  overflow-wrap: anywhere;
+}
+
+.auth-panel [hidden] {
+  display: none;
+}
+
 button {
   min-height: 46px;
   padding: 0 18px;

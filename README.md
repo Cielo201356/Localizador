@@ -13,16 +13,23 @@ internet para cargar sus mosaicos.
 
 1. Crea un proyecto en Firebase y registra una aplicación web.
 2. Copia la configuración de la aplicación en `firebase-config.js`.
-3. Habilita **Authentication > Sign-in method > Anonymous**.
+3. En **Authentication > Sign-in method**, habilita **Email/Password**.
 4. Crea una base de datos de **Cloud Firestore** y publica las reglas de
    `firestore.rules`.
 5. Sirve esta carpeta con un servidor web local o publícala en un sitio HTTPS.
    Los navegadores suelen requerir HTTPS para geolocalización fuera de
    `localhost`; abrir `index.html` directamente puede no funcionar.
 
-La aplicación usa autenticación anónima y almacena registros en
-`users/{uid}/locations`. Las reglas permiten a cada sesión autenticada crear y
-leer solo sus propios registros, y no permiten modificarlos ni borrarlos.
+La primera vez, crea una cuenta con correo y contraseña; en los demás
+dispositivos inicia sesión con esa misma cuenta. La aplicación almacena los
+registros en `users/{uid}/locations` y sincroniza en tiempo real la última
+ubicación entre sesiones de esa cuenta. Las reglas permiten que cada persona
+autenticada cree y lea solo sus propios registros, y no permiten modificarlos
+ni borrarlos. Publica las reglas de `firestore.rules` en Firebase para habilitar
+la lectura y escritura. Si este navegador ya tenía una sesión anónima de la
+versión anterior, crear la cuenta desde ahí la vincula y conserva sus registros.
+Las ubicaciones de sesiones anónimas en otros dispositivos no se trasladan
+automáticamente.
 
 ## Frecuencia
 

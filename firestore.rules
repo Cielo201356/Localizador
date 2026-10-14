@@ -17,7 +17,8 @@ service cloud.firestore {
                     && request.resource.data.longitude is number
                     && request.resource.data.longitude >= -180
                     && request.resource.data.longitude <= 180
-                    && request.resource.data.accuracy is number;
+                    && request.resource.data.accuracy is number
+                    && request.resource.data.capturedAt is timestamp;
       allow read: if request.auth != null && request.auth.uid == userId;
       allow update, delete: if false;
     }
