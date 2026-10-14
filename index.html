@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Localizador</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="card">
+      <p class="eyebrow">LOCALIZADOR PERSONAL</p>
+      <h1>Compartir mi ubicación</h1>
+      <p class="intro">
+        Tu ubicación se guarda en Firebase únicamente mientras el seguimiento
+        esté activo. El navegador te pedirá permiso.
+      </p>
+
+      <div class="actions">
+        <button id="start" type="button">Iniciar seguimiento</button>
+        <button id="stop" type="button" class="secondary" disabled>
+          Detener
+        </button>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite">
+        Comprobando configuración…
+      </p>
+
+      <section aria-label="Mapa de ubicación">
+        <h2 class="section-title">Mapa</h2>
+        <div id="map" role="region" aria-label="Mapa con tu ubicación actual"></div>
+      </section>
+
+      <section class="location" aria-label="Última ubicación">
+        <div><span>Latitud</span><strong id="latitude">—</strong></div>
+        <div><span>Longitud</span><strong id="longitude">—</strong></div>
+        <div><span>Precisión</span><strong id="accuracy">—</strong></div>
+        <div><span>Última lectura</span><strong id="captured-at">—</strong></div>
+      </section>
+
+      <p class="note">
+        El GPS del dispositivo no puede proporcionar posiciones cada 1 ms.
+        Esta página guarda cada lectura nueva que informa el navegador.
+      </p>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
